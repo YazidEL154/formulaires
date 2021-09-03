@@ -1,0 +1,14 @@
+<h1>Login :</h1>
+<form [formGroup]="formLogin" (ngSubmit)="submit()">
+    <div class="form-item">
+        <label for="email">Adresse Mail d'inscription :</label>
+        <input type="text" [(ngModel)]="newUser.email" name="email" id="email" formControlName="email">
+        <p class="alert" *ngIf="formLogin.controls.email.errors?.required">Entrez votre e-mail</p>
+    </div>
+    <div class="form-item">
+        <label for="mdp">Mot de passe : </label>
+        <input type="text" [(ngModel)]="newUser.mdp" name="mdp" id="mdp" formControlName="mdp">
+        <p class="alert" *ngIf="formLogin.controls.mdp.errors?.required">Entrez votre mdp</p>
+    </div>
+    <button type="submit" [disabled]="!formLogin.valid">Envoyer</button>
+</form>
